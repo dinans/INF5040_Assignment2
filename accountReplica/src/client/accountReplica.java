@@ -307,8 +307,10 @@ public class accountReplica {
 		SpreadMessage msg = new SpreadMessage();
 		msg.setReliable();
 		msg.addGroup(accountName);
-		byte mess[] = new String(Double.toString(balance)).getBytes();
-
+		
+		//byte mess[] = new String(Double.toString(balance)).getBytes();
+//deposit-beta
+		byte mess[] = new String(Double.toString(toAdd)).getBytes();
 		msg.setData(mess);
 
 		try {
@@ -427,8 +429,16 @@ public class accountReplica {
 				if (message.isRegular()) {
 
 					area.append("\nBalance has been updated.");
-					balance = Double.parseDouble((new String(message.getData())));
+					if(message.getSender().equals(connection.getPrivateGroup()))
+						{
+						area.append("\nI am doing smth: ");
+						}
+					else
+					{
+						area.append("\nSomeone else is doing smth: ");
+					balance += Double.parseDouble((new String(message.getData())));
 					refreshBal();
+					}
 				} else if (message.isMembership()) {
 					MembershipInfo info = message.getMembershipInfo();
 
