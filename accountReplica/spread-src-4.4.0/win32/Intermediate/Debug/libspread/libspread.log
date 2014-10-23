@@ -1,0 +1,49 @@
+﻿Build started 16.10.2014 13:25:32.
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread.vcxproj" on node 3 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\daemon /I..\include /I..\stdutil\src /I..\libspread /I"..\libspread-util\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D ARCH_PC_WIN95 /D _REENTRANT /D _WIN32_WINNT=0x0400 /D DISABLE_FUNCTION_NAME_LOOKUP /D _CRT_SECURE_NO_WARNINGS /Gm /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Intermediate\Debug\libspread\\" /Fd"Intermediate\Debug\libspread\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt "..\libspread-util\src\alarm.c" "..\libspread-util\src\arch.c" "..\libspread-util\src\data_link.c" "..\libspread-util\src\events.c" "..\libspread-util\src\memory.c" ..\libspread\fl.c ..\libspread\scatp.c ..\libspread\sp.c ..\stdutil\src\stdarr.c ..\stdutil\src\stdcarr.c ..\stdutil\src\stddll.c ..\stdutil\src\stderror.c ..\stdutil\src\stdhash.c ..\stdutil\src\stdit.c ..\stdutil\src\stdskl.c ..\stdutil\src\stdthread.c ..\stdutil\src\stdtime.c ..\stdutil\src\stdutil.c
+         stdutil.c
+         stdtime.c
+         stdthread.c
+         stdskl.c
+         stdit.c
+         stdhash.c
+         stderror.c
+         stddll.c
+         stdcarr.c
+         stdarr.c
+         sp.c
+         scatp.c
+         fl.c
+         memory.c
+         events.c
+         data_link.c
+         arch.c
+         alarm.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\lib\win32\Debug\libspread.lib" /NOLOGO Intermediate\Debug\libspread\alarm.obj
+         Intermediate\Debug\libspread\arch.obj
+         Intermediate\Debug\libspread\data_link.obj
+         Intermediate\Debug\libspread\events.obj
+         Intermediate\Debug\libspread\memory.obj
+         Intermediate\Debug\libspread\fl.obj
+         Intermediate\Debug\libspread\scatp.obj
+         Intermediate\Debug\libspread\sp.obj
+         Intermediate\Debug\libspread\stdarr.obj
+         Intermediate\Debug\libspread\stdcarr.obj
+         Intermediate\Debug\libspread\stddll.obj
+         Intermediate\Debug\libspread\stderror.obj
+         Intermediate\Debug\libspread\stdhash.obj
+         Intermediate\Debug\libspread\stdit.obj
+         Intermediate\Debug\libspread\stdskl.obj
+         Intermediate\Debug\libspread\stdthread.obj
+         Intermediate\Debug\libspread\stdtime.obj
+         Intermediate\Debug\libspread\stdutil.obj
+         libspread.vcxproj -> C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\..\lib\win32\Debug\libspread.lib
+     1>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.70

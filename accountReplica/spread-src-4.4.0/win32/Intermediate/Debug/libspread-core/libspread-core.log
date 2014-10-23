@@ -1,0 +1,24 @@
+﻿Build started 16.10.2014 13:25:31.
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\include /I..\daemon /I"..\libspread-util\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _REENTRANT /D ARCH_PC_WIN95 /D DISABLE_FUNCTION_NAME_LOOKUP /D _CRT_SECURE_NO_WARNINGS /Gm /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Intermediate\Debug\libspread-core\\" /Fd"Intermediate\Debug\libspread-core\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt "..\libspread-util\src\alarm.c" "..\libspread-util\src\data_link.c" "..\libspread-util\src\events.c" "..\libspread-util\src\memory.c" ..\libspread\sp.c
+         sp.c
+         memory.c
+         events.c
+         data_link.c
+         alarm.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\lib\win32\Debug\libspread-core.lib" /NOLOGO "Intermediate\Debug\libspread-core\alarm.obj"
+         "Intermediate\Debug\libspread-core\arch.obj"
+         "Intermediate\Debug\libspread-core\data_link.obj"
+         "Intermediate\Debug\libspread-core\events.obj"
+         "Intermediate\Debug\libspread-core\memory.obj"
+         "Intermediate\Debug\libspread-core\sp.obj"
+         libspread-core.vcxproj -> C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\..\lib\win32\Debug\libspread-core.lib
+     1>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.73

@@ -1,0 +1,82 @@
+﻿Build started 16.10.2014 13:25:32.
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread-service.vcxproj" on node 4 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\daemon /I..\include /I..\stdutil\src /I"..\libspread-util\include" /ZI /nologo /W3 /WX- /Od /Oy- /D ARCH_PC_WIN95 /D USE_SPREAD_MAIN /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _CRT_NON_CONFORMING_SWPRINTFS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Intermediate\Debug\spread-service\\" /Fd"Intermediate\Debug\spread-service\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt ..\daemon\acm.c "..\daemon\acp-permit.c" "..\daemon\auth-ip.c" "..\daemon\auth-null.c" ..\daemon\configuration.c ..\daemon\flow_control.c ..\daemon\groups.c ..\daemon\ip_enum.c ..\daemon\lex.yy.c ..\daemon\log.c ..\daemon\membership.c ..\daemon\message.c ..\daemon\network.c ..\daemon\protocol.c ..\daemon\session.c ..\daemon\spread.c ..\daemon\status.c ..\daemon\winservice.c ..\daemon\y.tab.c ..\stdutil\src\stdarr.c ..\stdutil\src\stdcarr.c ..\stdutil\src\stddll.c ..\stdutil\src\stderror.c ..\stdutil\src\stdfd.c ..\stdutil\src\stdhash.c ..\stdutil\src\stdit.c ..\stdutil\src\stdskl.c ..\stdutil\src\stdthread.c ..\stdutil\src\stdtime.c ..\stdutil\src\stdutil.c
+         stdutil.c
+         stdtime.c
+         stdthread.c
+         stdskl.c
+         stdit.c
+         stdhash.c
+         stdfd.c
+         stderror.c
+         stddll.c
+         stdcarr.c
+         stdarr.c
+         y.tab.c
+     1>y.tab.c(714): warning C4273: 'malloc' : inconsistent dll linkage
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdlib.h(621) : see previous definition of 'malloc'
+     1>y.tab.c(721): warning C4273: 'free' : inconsistent dll linkage
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdlib.h(620) : see previous definition of 'free'
+         winservice.c
+         status.c
+         spread.c
+         session.c
+         protocol.c
+         network.c
+         message.c
+         membership.c
+         Generating Code...
+         Compiling...
+         log.c
+         lex.yy.c
+     1>lex.yy.c(1704): warning C4003: not enough actual parameters for macro 'yywrap'
+     1>lex.yy.c(2039): warning C4003: not enough actual parameters for macro 'yywrap'
+         ip_enum.c
+         groups.c
+         flow_control.c
+         configuration.c
+         auth-null.c
+         auth-ip.c
+         acp-permit.c
+         acm.c
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\win32\Debug\spread-service.exe" /INCREMENTAL /NOLOGO /LIBPATH:"..\libspread-util\lib\win32\Debug" Ws2_32.lib "libspread-util.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMTD.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\win32\Debug\spread-service.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\win32\Debug\spread-service.lib" /MACHINE:X86 "Intermediate\Debug\spread-service\acm.obj"
+         "Intermediate\Debug\spread-service\acp-permit.obj"
+         "Intermediate\Debug\spread-service\auth-ip.obj"
+         "Intermediate\Debug\spread-service\auth-null.obj"
+         "Intermediate\Debug\spread-service\configuration.obj"
+         "Intermediate\Debug\spread-service\flow_control.obj"
+         "Intermediate\Debug\spread-service\groups.obj"
+         "Intermediate\Debug\spread-service\ip_enum.obj"
+         "Intermediate\Debug\spread-service\lex.yy.obj"
+         "Intermediate\Debug\spread-service\log.obj"
+         "Intermediate\Debug\spread-service\membership.obj"
+         "Intermediate\Debug\spread-service\message.obj"
+         "Intermediate\Debug\spread-service\network.obj"
+         "Intermediate\Debug\spread-service\protocol.obj"
+         "Intermediate\Debug\spread-service\session.obj"
+         "Intermediate\Debug\spread-service\spread.obj"
+         "Intermediate\Debug\spread-service\status.obj"
+         "Intermediate\Debug\spread-service\winservice.obj"
+         "Intermediate\Debug\spread-service\y.tab.obj"
+         "Intermediate\Debug\spread-service\stdarr.obj"
+         "Intermediate\Debug\spread-service\stdcarr.obj"
+         "Intermediate\Debug\spread-service\stddll.obj"
+         "Intermediate\Debug\spread-service\stderror.obj"
+         "Intermediate\Debug\spread-service\stdfd.obj"
+         "Intermediate\Debug\spread-service\stdhash.obj"
+         "Intermediate\Debug\spread-service\stdit.obj"
+         "Intermediate\Debug\spread-service\stdskl.obj"
+         "Intermediate\Debug\spread-service\stdthread.obj"
+         "Intermediate\Debug\spread-service\stdtime.obj"
+         "Intermediate\Debug\spread-service\stdutil.obj"
+         "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\lib\win32\Debug\libspread-util.lib"
+         spread-service.vcxproj -> C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\..\bin\win32\Debug\spread-service.exe
+     1>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread-service.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:22.12

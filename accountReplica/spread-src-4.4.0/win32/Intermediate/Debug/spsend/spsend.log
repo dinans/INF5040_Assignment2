@@ -1,0 +1,16 @@
+﻿Build started 16.10.2014 13:25:43.
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spsend.vcxproj" on node 4 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\include /I"..\libspread-util\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D ARCH_PC_WIN95 /D _CRT_SECURE_NO_WARNINGS /Gm /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Intermediate\Debug\spsend\\" /Fd"Intermediate\Debug\spsend\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt ..\daemon\s.c
+         s.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\win32\Debug\spsend.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\lib\win32\Debug Wsock32.lib "libspread-core.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\win32\Debug\spsend.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\win32\Debug\spsend.lib" /MACHINE:X86 /SAFESEH Intermediate\Debug\spsend\s.obj
+         "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\lib\win32\Debug\libspread-core.lib"
+     1>s.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         spsend.vcxproj -> C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\..\bin\win32\Debug\spsend.exe
+     1>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spsend.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.84

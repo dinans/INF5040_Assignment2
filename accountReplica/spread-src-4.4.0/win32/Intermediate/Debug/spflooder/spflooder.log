@@ -1,0 +1,25 @@
+﻿Build started 16.10.2014 13:25:39.
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spflooder.vcxproj" on node 3 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spflooder.vcxproj" (1) is building "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (2) on node 2 (GetTargetPath target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     2>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (GetTargetPath target(s)).
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spflooder.vcxproj" (1) is building "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (2:2) on node 2 (GetNativeManifest target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     2>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (GetNativeManifest target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /Gm /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Intermediate\Debug\spflooder\\" /Fd"Intermediate\Debug\spflooder\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt ..\examples\flooder.c
+         flooder.c
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spflooder.vcxproj" (1) is building "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (2:3) on node 2 (GetResolvedLinkLibs target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     2>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\libspread-core.vcxproj" (GetResolvedLinkLibs target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\win32\Debug\spflooder.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\lib\win32\Debug "libspread-core.lib" Wsock32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\win32\Debug\spflooder.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\win32\Debug\spflooder.lib" /MACHINE:X86 /SAFESEH Intermediate\Debug\spflooder\flooder.obj
+         "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\lib\win32\Debug\libspread-core.lib"
+     1>flooder.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         spflooder.vcxproj -> C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\..\bin\win32\Debug\spflooder.exe
+     1>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spflooder.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.91

@@ -1,0 +1,82 @@
+﻿Build started 16.10.2014 13:24:15.
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread.vcxproj" (1) is building "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\win32\libspread-util.vcxproj" (2) on node 2 (GetTargetPath target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     2>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\win32\libspread-util.vcxproj" (GetTargetPath target(s)).
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread.vcxproj" (1) is building "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\win32\libspread-util.vcxproj" (2:2) on node 2 (GetNativeManifest target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     2>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\win32\libspread-util.vcxproj" (GetNativeManifest target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\daemon /I..\include /I..\stdutil\src /I"..\libspread-util\include" /ZI /nologo /W3 /WX- /Od /Oy- /D ARCH_PC_WIN95 /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /Gm /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Intermediate\Debug\spread\\" /Fd"Intermediate\Debug\spread\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt ..\daemon\acm.c "..\daemon\acp-permit.c" "..\daemon\auth-ip.c" "..\daemon\auth-null.c" ..\daemon\configuration.c ..\daemon\flow_control.c ..\daemon\groups.c ..\daemon\ip_enum.c ..\daemon\lex.yy.c ..\daemon\log.c ..\daemon\membership.c ..\daemon\message.c ..\daemon\network.c ..\daemon\protocol.c ..\daemon\session.c ..\daemon\spread.c ..\daemon\status.c ..\daemon\y.tab.c ..\stdutil\src\stdarr.c ..\stdutil\src\stdcarr.c ..\stdutil\src\stddll.c ..\stdutil\src\stderror.c ..\stdutil\src\stdhash.c ..\stdutil\src\stdit.c ..\stdutil\src\stdskl.c ..\stdutil\src\stdtime.c ..\stdutil\src\stdutil.c
+         stdutil.c
+         stdtime.c
+         stdskl.c
+         stdit.c
+         stdhash.c
+         stderror.c
+         stddll.c
+         stdcarr.c
+         stdarr.c
+         y.tab.c
+         status.c
+         spread.c
+         session.c
+         protocol.c
+         network.c
+         message.c
+         membership.c
+         log.c
+         lex.yy.c
+     1>lex.yy.c(1704): warning C4003: not enough actual parameters for macro 'yywrap'
+     1>lex.yy.c(2039): warning C4003: not enough actual parameters for macro 'yywrap'
+         ip_enum.c
+         Generating Code...
+         Compiling...
+         groups.c
+         flow_control.c
+         configuration.c
+         auth-null.c
+         auth-ip.c
+         acp-permit.c
+         acm.c
+         Generating Code...
+     1>Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread.vcxproj" (1) is building "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\win32\libspread-util.vcxproj" (2:3) on node 2 (GetResolvedLinkLibs target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
+     2>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\win32\libspread-util.vcxproj" (GetResolvedLinkLibs target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\win32\Debug\spread.exe" /INCREMENTAL /NOLOGO /LIBPATH:"..\libspread-util\lib\win32\Debug" Ws2_32.lib "libspread-util.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBCMTD.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\win32\Debug\spread.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\win32\Debug\spread.lib" /MACHINE:X86 /SAFESEH Intermediate\Debug\spread\acm.obj
+         "Intermediate\Debug\spread\acp-permit.obj"
+         "Intermediate\Debug\spread\auth-ip.obj"
+         "Intermediate\Debug\spread\auth-null.obj"
+         Intermediate\Debug\spread\configuration.obj
+         Intermediate\Debug\spread\flow_control.obj
+         Intermediate\Debug\spread\groups.obj
+         Intermediate\Debug\spread\ip_enum.obj
+         Intermediate\Debug\spread\lex.yy.obj
+         Intermediate\Debug\spread\log.obj
+         Intermediate\Debug\spread\membership.obj
+         Intermediate\Debug\spread\message.obj
+         Intermediate\Debug\spread\network.obj
+         Intermediate\Debug\spread\protocol.obj
+         Intermediate\Debug\spread\session.obj
+         Intermediate\Debug\spread\spread.obj
+         Intermediate\Debug\spread\status.obj
+         Intermediate\Debug\spread\y.tab.obj
+         Intermediate\Debug\spread\stdarr.obj
+         Intermediate\Debug\spread\stdcarr.obj
+         Intermediate\Debug\spread\stddll.obj
+         Intermediate\Debug\spread\stderror.obj
+         Intermediate\Debug\spread\stdhash.obj
+         Intermediate\Debug\spread\stdit.obj
+         Intermediate\Debug\spread\stdskl.obj
+         Intermediate\Debug\spread\stdtime.obj
+         Intermediate\Debug\spread\stdutil.obj
+         "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\libspread-util\lib\win32\Debug\libspread-util.lib"
+     1>acm.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         spread.vcxproj -> C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\..\bin\win32\Debug\spread.exe
+     1>Done Building Project "C:\eclipse lunar\workspace\accountReplica\spread-src-4.4.0\win32\spread.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:19.53
