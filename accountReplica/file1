@@ -14,7 +14,7 @@ deposit 57
 sleep 500
 deposit 56
 deposit 55
-deposit 54
+withdraw 54
 deposit 60
 sleep 500
 deposit 60
@@ -25,5 +25,5 @@ sleep 500
 deposit 888
 deposit 55
 sleep 500
-deposit 54
+withdraw 54
 

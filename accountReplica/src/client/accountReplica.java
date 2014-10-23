@@ -310,7 +310,7 @@ public class accountReplica {
 		
 		//byte mess[] = new String(Double.toString(balance)).getBytes();
 //deposit-beta
-		byte mess[] = new String(Double.toString(toAdd)).getBytes();
+		byte mess[] = new String("a"+Double.toString(toAdd)).getBytes();
 		msg.setData(mess);
 
 		try {
@@ -338,8 +338,8 @@ public class accountReplica {
 		 */
 		msg.setReliable();
 		msg.addGroup(accountName);
-		byte mess[] = new String(Double.toString(balance)).getBytes();
-
+		//byte mess[] = new String(Double.toString(balance)).getBytes();
+		byte mess[] = new String("a"+Double.toString(round((toAdd/100.0),2))).getBytes();
 		msg.setData(mess);
 
 		try {
@@ -366,7 +366,7 @@ public class accountReplica {
 		 */
 		msg.setReliable();
 		msg.addGroup(accountName);
-		byte mess[] = new String(Double.toString(balance)).getBytes();
+		byte mess[] = new String("a"+Double.toString(-toWd)).getBytes();
 
 		msg.setData(mess);
 
@@ -431,13 +431,28 @@ public class accountReplica {
 					area.append("\nBalance has been updated.");
 					if(message.getSender().equals(connection.getPrivateGroup()))
 						{
-						area.append("\nI am doing smth: ");
+						//area.append("\nI am doing smth: ");
+						refreshBal();
 						}
 					else
 					{
-						area.append("\nSomeone else is doing smth: ");
-					balance += Double.parseDouble((new String(message.getData())));
-					refreshBal();
+						//area.append("\nSomeone else is doing smth: ");
+						String oper=(new String(message.getData())).substring(0, 1);
+						double val = Double.parseDouble((new String(message.getData())).substring(1));
+						
+						// Here "a" stands for operations with account, while "i" is for "initialize balance message"
+						if(oper.equals("a"))
+						{
+							balance += val;
+							refreshBal();
+						}
+						else if(oper.equals("i"))
+						{
+							balance = val;
+							refreshBal();
+						}
+					//balance += Double.parseDouble((new String(message.getData())));
+					//refreshBal();
 					}
 				} else if (message.isMembership()) {
 					MembershipInfo info = message.getMembershipInfo();
@@ -466,7 +481,7 @@ public class accountReplica {
 									+ info.getJoined().toString());
 
 							SpreadMessage msg = new SpreadMessage();
-							byte mess[] = new String(Double.toString(balance))
+							byte mess[] = new String("i"+Double.toString(balance))
 									.getBytes();
 
 							msg.setData(mess);
