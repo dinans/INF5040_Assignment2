@@ -36,7 +36,7 @@ import spread.SpreadGroup;
 import spread.SpreadMessage;
 
 public class accountReplica {
-	public SpreadConnection connection;
+	public static SpreadConnection connection;
 	public String connName;
 	public String peersLabtxt = "Total number of clients connected:";
 	public String balanceLabtxt = "Current balance on the account:";
@@ -44,11 +44,13 @@ public class accountReplica {
 	public static String accountName = "";
 	private int port = 4333;
 	private static int numberOfReplicas;
-	private int clients;
+	private static int clients;
+	static boolean connInited=false;
 
-	private double balance = 0.0;
+	private static double balance = 0.0;
 
-	JTextArea area;
+	static JFrame frame;
+	static JTextArea area;
 	JLabel peersLabel;
 	JLabel balanceLabel;
 	JLabel reqPeers;
@@ -63,7 +65,8 @@ public class accountReplica {
 
 	public void checkPeersNumber() {
 		peersLabel.setText(peersLabtxt + clients);
-		reqPeers.setText(reqPeerstxt + (numberOfReplicas-clients) + " more peer(s) to join");
+		reqPeers.setText(reqPeerstxt + (numberOfReplicas - clients)
+				+ " more peer(s) to join");
 		if (clients >= numberOfReplicas) {
 			deposit.setEnabled(true);
 			rbalance.setEnabled(true);
@@ -81,15 +84,16 @@ public class accountReplica {
 
 	public void createGUI() {
 
-		
 		/*
-		 * -----------------------------------------------------------------------
-		 *  description of graph. components
-		 * -----------------------------------------------------------------------
+		 * ----------------------------------------------------------------------
+		 * - description of graph. components
+		 * ------------------------------------
+		 * -----------------------------------
 		 */
 		peersLabel = new JLabel(peersLabtxt + clients);
 		balanceLabel = new JLabel(balanceLabtxt + balance);
-		reqPeers = new JLabel(reqPeerstxt + (numberOfReplicas-clients) + " more peer(s) to join");
+		reqPeers = new JLabel(reqPeerstxt + (numberOfReplicas - clients)
+				+ " more peer(s) to join");
 		Font font = new Font("Verdana", Font.ITALIC, 11);
 		balanceLabel.setBackground(Color.RED);
 		rbalance = new JButton("Refresh balance");
@@ -108,9 +112,10 @@ public class accountReplica {
 		JTextField field = new JTextField(20);
 
 		/*
-		 * -----------------------------------------------------------------------
-		 *  adding of graph. components
-		 * -----------------------------------------------------------------------
+		 * ----------------------------------------------------------------------
+		 * - adding of graph. components
+		 * ----------------------------------------
+		 * -------------------------------
 		 */
 		area = new JTextArea();
 		area.setForeground(Color.BLACK);
@@ -119,13 +124,13 @@ public class accountReplica {
 		GridBagLayout gbl = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 
-		JFrame frame = new JFrame("Distributed banking application");
+		frame = new JFrame("Distributed banking application");
 		frame.setLayout(gbl);
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
-		 c.ipadx = 50;
+		c.ipadx = 50;
 		c.insets = new Insets(20, 0, 0, 0);
 		gbl.setConstraints(field, c);
 		frame.add(field);
@@ -153,24 +158,19 @@ public class accountReplica {
 		c.insets = new Insets(0, 5, 0, 0);
 		gbl.setConstraints(reqPeers, c);
 		frame.add(reqPeers);
-		
-		
-		
+
 		c.gridy = 1;
 		gbl.setConstraints(peersLabel, c);
 		frame.add(peersLabel);
 
-		
 		c.gridy = 2;
 		gbl.setConstraints(balanceLabel, c);
 		frame.add(balanceLabel);
 
-		
 		c.gridy = 3;
 		gbl.setConstraints(rbalance, c);
 		frame.add(rbalance);
 
-		
 		c.gridy = 4;
 		gbl.setConstraints(exit, c);
 		frame.add(exit);
@@ -182,17 +182,18 @@ public class accountReplica {
 		gbl.setConstraints(area, c);
 		frame.add(area);
 
+		/*
+		 * ----------------------------------------------------------------------
+		 * - LISTENERS FOR BUTTONS
+		 * ----------------------------------------------
+		 * ------------------------
+		 */
 
 		/*
-		 * -----------------------------------------------------------------------
-		 *  LISTENERS FOR BUTTONS
-		 *  ----------------------------------------------------------------------
-		 */
-		
-		/*
-		 * -----------------------------------------------------------------------
-		 *  deposit
-		 * -----------------------------------------------------------------------
+		 * ----------------------------------------------------------------------
+		 * - deposit
+		 * ------------------------------------------------------------
+		 * -----------
 		 */
 		deposit.addActionListener(new ActionListener() {
 
@@ -211,9 +212,10 @@ public class accountReplica {
 			}
 		});
 		/*
-		 * -----------------------------------------------------------------------
-		 *  withdraw
-		 * -----------------------------------------------------------------------
+		 * ----------------------------------------------------------------------
+		 * - withdraw
+		 * ------------------------------------------------------------
+		 * -----------
 		 */
 		withdraw.addActionListener(new ActionListener() {
 
@@ -227,13 +229,13 @@ public class accountReplica {
 								+ "NOK from account...");
 						withdAcc(toWd);
 					} else {
-						int s =area.getText().length();
+						int s = area.getText().length();
 						area.append("\nTransaction denied. You are allowed to withdraw not more than "
 								+ balance + " NOK");
-						int en =area.getText().length();
+						int en = area.getText().length();
 						area.select(s, en);
-						area.append("Selected text "+s+" to "+en);
-						
+						area.append("Selected text " + s + " to " + en);
+
 						area.setSelectedTextColor(Color.RED);
 						area.setSelectionColor(Color.RED);
 
@@ -245,9 +247,10 @@ public class accountReplica {
 			}
 		});
 		/*
-		 * -----------------------------------------------------------------------
-		 *  add interest
-		 * -----------------------------------------------------------------------
+		 * ----------------------------------------------------------------------
+		 * - add interest
+		 * --------------------------------------------------------
+		 * ---------------
 		 */
 		addinterest.addActionListener(new ActionListener() {
 
@@ -279,7 +282,7 @@ public class accountReplica {
 				frame.dispose();
 			}
 		});
-		
+
 		// draw frame
 		frame.setMinimumSize(new Dimension(300, 500));
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -287,19 +290,18 @@ public class accountReplica {
 		frame.setVisible(true);
 	}
 
-	
 	/*
 	 * -----------------------------------------------------------------------
-	 *  IMPLEMENTATION OF BUTTONS FUNCTIONALITY
+	 * IMPLEMENTATION OF BUTTONS FUNCTIONALITY
 	 * -----------------------------------------------------------------------
 	 */
-	
+
 	/*
 	 * -----------------------------------------------------------------------
-	 *  deposit
+	 * deposit
 	 * -----------------------------------------------------------------------
 	 */
-	public void deposAcc(int toAdd) {
+	public static void deposAcc(int toAdd) {
 		balance += toAdd;
 
 		SpreadMessage msg = new SpreadMessage();
@@ -317,16 +319,16 @@ public class accountReplica {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/*
 	 * -----------------------------------------------------------------------
-	 *  add interest
+	 * add interest
 	 * -----------------------------------------------------------------------
 	 */
-	
-	public void addInt(int toAdd) {
-		balance = round(balance*(1+(toAdd/100.0)),2);
-		
+
+	public static void addInt(int toAdd) {
+		balance = round(balance * (1 + (toAdd / 100.0)), 2);
+
 		SpreadMessage msg = new SpreadMessage();
 		/*
 		 * msg.setSafe(); msg.setData(new
@@ -349,10 +351,10 @@ public class accountReplica {
 
 	/*
 	 * -----------------------------------------------------------------------
-	 *  withdraw
+	 * withdraw
 	 * -----------------------------------------------------------------------
 	 */
-	public void withdAcc(int toWd) {
+	public static void withdAcc(int toWd) {
 		balance -= toWd;
 
 		SpreadMessage msg = new SpreadMessage();
@@ -374,12 +376,12 @@ public class accountReplica {
 			e.printStackTrace();
 		}
 	}
+
 	/*
 	 * -----------------------------------------------------------------------
-	 *  refresh balance --- button is not actually needed, balance is being 
-	 *  updated automatically on permanent label:
-	 *  1)after each transaction
-	 *  2)after new connection
+	 * refresh balance --- button is not actually needed, balance is being
+	 * updated automatically on permanent label: 1)after each transaction
+	 * 2)after new connection
 	 * -----------------------------------------------------------------------
 	 */
 	public void refreshBal() {
@@ -402,7 +404,6 @@ public class accountReplica {
 			group.join(connection, accountName);
 			area.append("\nConnected to " + accountName + " group on "
 					+ serverName);
-			
 
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -440,7 +441,6 @@ public class accountReplica {
 					}
 					if (info.isCausedByJoin()) {
 						clients = info.getMembers().length;
-						
 
 						// When someone new joins we should send balance message
 						// to him!!!
@@ -471,6 +471,7 @@ public class accountReplica {
 								e.printStackTrace();
 							}
 						}
+						else connInited=true;
 					}
 
 				} else if (message.isReject()) {
@@ -512,31 +513,73 @@ public class accountReplica {
 		client.createGUI();
 
 		client.init(adress, accountName);
+		try {
+			Thread.currentThread().sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (args.length == 4) {
+			if (connInited&&(clients >= numberOfReplicas)) {
+				parseDocument(args[3]);
+
+			} else {
+				// wait some time for initialization then repeat checking
+				
+				
+				area.append("\nCannot parse documect. Waiting for more clients to join.");
+			}
+
+			// frame.dispose();
+		}
+
 	}
 
-	private void parseDocument(String fileToReadFrom) {
+	private static void parseDocument(String fileToReadFrom) {
 		File file = new File(fileToReadFrom);
 		Scanner scanner = null;
+
 		try {
 			scanner = new Scanner(file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			area.append("\nCannot parse documect. Wrong file name");
+			
 		}
 		while (scanner.hasNext()) {
 			String command = scanner.next();
-			if (command.equals("balance")) {
-			} else if (command.equals("deposit")) {
+			int par = scanner.nextInt();
+			if (command.equals("deposit")) {
+				//System.out.println("DEOPSIT HERE");
+				deposAcc(par);
 			} else if (command.equals("withdraw")) {
+				if (par<=balance)
+				{withdAcc(par);
+				
+				}
 			} else if (command.equals("addinterest")) {
+			
+				addInt(par);
 			} else if (command.equals("sleep")) {
-			} else if (command.equals("exit")) {
+				try {
+					Thread.currentThread().sleep(par);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	}
-	 private static double round(double number, int scale) {
-	      int pow = (int) Math.pow(10, scale);
-	      double tmp = number * pow;
-	      return (double) (int) ((tmp - (int) tmp) >= 0.5f ? tmp + 1 : tmp) / pow;
-	   }
+
+	/*
+	 * ------------------------------------------------------- This function
+	 * helps to round balance with nec. precision
+	 * -------------------------------------------------------
+	 */
+	private static double round(double number, int scale) {
+		int pow = (int) Math.pow(10, scale);
+		double tmp = number * pow;
+		return (double) (int) ((tmp - (int) tmp) >= 0.5f ? tmp + 1 : tmp) / pow;
+	}
 
 }
