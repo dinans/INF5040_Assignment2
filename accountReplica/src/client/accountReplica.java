@@ -329,6 +329,7 @@ public class accountReplica {
 	 */
 
 	public static void addInt(int toAdd) {
+		double a = round((balance*toAdd / 100.0),2);
 		balance = round(balance * (1 + (toAdd / 100.0)), 2);
 
 		SpreadMessage msg = new SpreadMessage();
@@ -339,7 +340,7 @@ public class accountReplica {
 		msg.setReliable();
 		msg.addGroup(accountName);
 		//byte mess[] = new String(Double.toString(balance)).getBytes();
-		byte mess[] = new String("a"+Double.toString(round((toAdd/100.0),2))).getBytes();
+		byte mess[] = new String("a"+Double.toString(a)).getBytes();
 		msg.setData(mess);
 
 		try {
