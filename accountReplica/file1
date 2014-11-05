@@ -18,6 +18,8 @@ deposit 100
 sleep 500
 deposit 100
 sleep 500
+addinterest 20
+sleep 500
 deposit 100
 sleep 500
 deposit 100

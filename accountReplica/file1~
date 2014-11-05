@@ -21,6 +21,5 @@ sleep 500
 deposit 100
 sleep 500
 deposit 100
-sleep 500
-addinterest 10
+
 

@@ -49,7 +49,9 @@ public class accountReplica {
 
 	private static double balance = 0.0;
 
-	static JFrame frame;
+	accountReplicaGUI gUI = new accountReplicaGUI("Account replica");
+	
+	/*static JFrame frame;
 	static JTextArea area;
 	JLabel peersLabel;
 	JLabel balanceLabel;
@@ -57,14 +59,14 @@ public class accountReplica {
 	JButton addinterest;
 	JButton rbalance;
 	JButton withdraw;
-	JButton deposit;
+	JButton deposit;*/
 
 	public void connect() {
 
 	}
 
 	public void checkPeersNumber() {
-		peersLabel.setText(peersLabtxt + clients);
+		/*peersLabel.setText(peersLabtxt + clients);
 		reqPeers.setText(reqPeerstxt + (numberOfReplicas - clients)
 				+ " more peer(s) to join");
 		if (clients >= numberOfReplicas) {
@@ -79,109 +81,32 @@ public class accountReplica {
 			addinterest.setEnabled(false);
 			withdraw.setEnabled(false);
 			reqPeers.setVisible(true);
+		}*/
+		gUI.peersLabel.setText(gUI.peersLabtxt + clients);
+		gUI.reqPeers.setText(gUI.reqPeerstxt + (numberOfReplicas - clients) + " more peer(s) to join");
+		if (clients >= numberOfReplicas) {
+			gUI.deposit.setEnabled(true);
+			gUI.rbalance.setEnabled(true);
+			gUI.addinterest.setEnabled(true);
+			gUI.withdraw.setEnabled(true);
+			gUI.reqPeers.setVisible(false);
+		} else {
+			gUI.deposit.setEnabled(false);
+			gUI.rbalance.setEnabled(false);
+			gUI.addinterest.setEnabled(false);
+			gUI.withdraw.setEnabled(false);
+			gUI.reqPeers.setVisible(true);
 		}
 	}
 
-	public void createGUI() {
+	//public void createGUI() {
 
-		/*
-		 * ----------------------------------------------------------------------
-		 * - description of graph. components
-		 * ------------------------------------
-		 * -----------------------------------
-		 */
-		peersLabel = new JLabel(peersLabtxt + clients);
-		balanceLabel = new JLabel(balanceLabtxt + balance);
-		reqPeers = new JLabel(reqPeerstxt + (numberOfReplicas - clients)
-				+ " more peer(s) to join");
-		Font font = new Font("Verdana", Font.ITALIC, 11);
-		balanceLabel.setBackground(Color.RED);
-		rbalance = new JButton("Refresh balance");
-		rbalance.setEnabled(false);
-		deposit = new JButton("Deposit");
-
-		deposit.setEnabled(false);
-		withdraw = new JButton("Withdraw");
-		withdraw.setEnabled(false);
-		addinterest = new JButton("Add interest");
-		addinterest.setEnabled(false);
-		JButton exit = new JButton("Exit");
-		JPanel actionsPanel = new JPanel();
-		JPanel statusPanel = new JPanel();
-		JPanel connStatusPanel = new JPanel();
-		JTextField field = new JTextField(20);
-
-		/*
-		 * ----------------------------------------------------------------------
-		 * - adding of graph. components
-		 * ----------------------------------------
-		 * -------------------------------
-		 */
-		area = new JTextArea();
-		area.setForeground(Color.BLACK);
-		area.append("Connecting...");
-
-		GridBagLayout gbl = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-
-		frame = new JFrame("Distributed banking application");
-		frame.setLayout(gbl);
-		c.anchor = GridBagConstraints.FIRST_LINE_START;
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.ipadx = 50;
-		c.insets = new Insets(20, 0, 0, 0);
-		gbl.setConstraints(field, c);
-		frame.add(field);
-
-		c.gridx = 0;
-		c.gridy = 1;
-		c.insets = new Insets(5, 0, 0, 0);
-		c.fill = GridBagConstraints.BOTH;
-		gbl.setConstraints(deposit, c);
-		frame.add(deposit);
-
-		c.gridx = 0;
-		c.gridy = 2;
-		gbl.setConstraints(withdraw, c);
-		frame.add(withdraw);
-
-		c.gridx = 0;
-		c.gridy = 3;
-		gbl.setConstraints(addinterest, c);
-		frame.add(addinterest);
-
-		c.anchor = GridBagConstraints.LAST_LINE_START;
-		c.gridx = 1;
-		c.gridy = 0;
-		c.insets = new Insets(0, 5, 0, 0);
-		gbl.setConstraints(reqPeers, c);
-		frame.add(reqPeers);
-
-		c.gridy = 1;
-		gbl.setConstraints(peersLabel, c);
-		frame.add(peersLabel);
-
-		c.gridy = 2;
-		gbl.setConstraints(balanceLabel, c);
-		frame.add(balanceLabel);
-
-		c.gridy = 3;
-		gbl.setConstraints(rbalance, c);
-		frame.add(rbalance);
-
-		c.gridy = 4;
-		gbl.setConstraints(exit, c);
-		frame.add(exit);
-
-		c.gridx = 0;
-		c.gridy = 5;
-		c.gridwidth = GridBagConstraints.REMAINDER;
-		c.weighty = 2.0;
-		gbl.setConstraints(area, c);
-		frame.add(area);
-
+	
+		
+		
+		
+		
+	public void addListeners() {
 		/*
 		 * ----------------------------------------------------------------------
 		 * - LISTENERS FOR BUTTONS
@@ -195,18 +120,18 @@ public class accountReplica {
 		 * ------------------------------------------------------------
 		 * -----------
 		 */
-		deposit.addActionListener(new ActionListener() {
+		gUI.deposit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int toAdd;
 				try {
-					toAdd = Integer.parseInt(field.getText());
-					area.append("\nAdding" + toAdd + "NOK to account...");
+					toAdd = Integer.parseInt(gUI.field.getText());
+					gUI.area.append("\nAdding" + toAdd + "NOK to account...");
 					deposAcc(toAdd);
 
 				} catch (NumberFormatException e1) {
-					area.append("Wrong number format.");
+					gUI.area.append("Wrong number format.");
 				}
 
 			}
@@ -217,31 +142,31 @@ public class accountReplica {
 		 * ------------------------------------------------------------
 		 * -----------
 		 */
-		withdraw.addActionListener(new ActionListener() {
+		gUI.withdraw.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int toWd;
 				try {
-					toWd = Integer.parseInt(field.getText());
+					toWd = Integer.parseInt(gUI.field.getText());
 					if (toWd <= balance) {
-						area.append("\nWithdrawing" + toWd
+						gUI.area.append("\nWithdrawing" + toWd
 								+ "NOK from account...");
 						withdAcc(toWd);
 					} else {
-						int s = area.getText().length();
-						area.append("\nTransaction denied. You are allowed to withdraw not more than "
+						int s = gUI.area.getText().length();
+						gUI.area.append("\nTransaction denied. You are allowed to withdraw not more than "
 								+ balance + " NOK");
-						int en = area.getText().length();
-						area.select(s, en);
-						area.append("Selected text " + s + " to " + en);
+						int en = gUI.area.getText().length();
+						gUI.area.select(s, en);
+						gUI.area.append("Selected text " + s + " to " + en);
 
-						area.setSelectedTextColor(Color.RED);
-						area.setSelectionColor(Color.RED);
+						gUI.area.setSelectedTextColor(Color.RED);
+						gUI.area.setSelectionColor(Color.RED);
 
 					}
 				} catch (NumberFormatException e1) {
-					area.append("\nWrong number format.");
+					gUI.area.append("\nWrong number format.");
 				}
 
 			}
@@ -252,43 +177,44 @@ public class accountReplica {
 		 * --------------------------------------------------------
 		 * ---------------
 		 */
-		addinterest.addActionListener(new ActionListener() {
+		gUI.addinterest.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int toAdd;
 				try {
-					toAdd = Integer.parseInt(field.getText());
-					area.append("\nAdding" + toAdd + "% to account...");
+					toAdd = Integer.parseInt(gUI.field.getText());
+					gUI.area.append("\nAdding" + toAdd + "% to account...");
 					addInt(toAdd);
 
 				} catch (NumberFormatException e1) {
-					area.append("Wrong number format.");
+					gUI.area.append("Wrong number format.");
 				}
 
 			}
 		});
-		rbalance.addActionListener(new ActionListener() {
+		gUI.rbalance.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				refreshBal();
 			}
 		});
-		exit.addActionListener(new ActionListener() {
+		gUI.exit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				gUI.dispose();
 			}
 		});
-
-		// draw frame
-		frame.setMinimumSize(new Dimension(300, 500));
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.pack();
-		frame.setVisible(true);
+		gUI.setMinimumSize(new Dimension(300, 500));
+		
+		gUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gUI.pack();
+		gUI.setVisible(true);
 	}
+		// draw frame
+		
 
 	/*
 	 * -----------------------------------------------------------------------
@@ -302,14 +228,13 @@ public class accountReplica {
 	 * -----------------------------------------------------------------------
 	 */
 	public static void deposAcc(int toAdd) {
-		balance += toAdd;
+		//balance += toAdd;
 
 		SpreadMessage msg = new SpreadMessage();
-		msg.setReliable();
+		msg.setSafe();
 		msg.addGroup(accountName);
 		
-		//byte mess[] = new String(Double.toString(balance)).getBytes();
-//deposit-beta
+		
 		byte mess[] = new String("a"+Double.toString(toAdd)).getBytes();
 		msg.setData(mess);
 
@@ -330,14 +255,11 @@ public class accountReplica {
 
 	public static void addInt(int toAdd) {
 		double a = round((balance*toAdd / 100.0),2);
-		balance = round(balance * (1 + (toAdd / 100.0)), 2);
+//		balance = round(balance * (1 + (toAdd / 100.0)), 2);
 
 		SpreadMessage msg = new SpreadMessage();
-		/*
-		 * msg.setSafe(); msg.setData(new
-		 * String(Double.toString(balance)).getBytes());
-		 */
-		msg.setReliable();
+		
+		msg.setSafe();
 		msg.addGroup(accountName);
 		//byte mess[] = new String(Double.toString(balance)).getBytes();
 		byte mess[] = new String("a"+Double.toString(a)).getBytes();
@@ -358,14 +280,11 @@ public class accountReplica {
 	 * -----------------------------------------------------------------------
 	 */
 	public static void withdAcc(int toWd) {
-		balance -= toWd;
+//		balance -= toWd;
 
 		SpreadMessage msg = new SpreadMessage();
-		/*
-		 * msg.setSafe(); msg.setData(new
-		 * String(Double.toString(balance)).getBytes());
-		 */
-		msg.setReliable();
+		
+		msg.setSafe();
 		msg.addGroup(accountName);
 		byte mess[] = new String("a"+Double.toString(-toWd)).getBytes();
 
@@ -388,7 +307,7 @@ public class accountReplica {
 	 * -----------------------------------------------------------------------
 	 */
 	public void refreshBal() {
-		balanceLabel.setText(balanceLabtxt + balance);
+		gUI.balanceLabel.setText(gUI.balanceLabtxt + balance);
 	}
 
 	public void init(String serverName, String accountName) {
@@ -405,18 +324,18 @@ public class accountReplica {
 
 			SpreadGroup group = new SpreadGroup();
 			group.join(connection, accountName);
-			area.append("\nConnected to " + accountName + " group on "
+			gUI.area.append("\nConnected to " + accountName + " group on "
 					+ serverName);
 
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			area.setForeground(Color.RED);
-			area.append("\nConnection error: unknown host name");
+			gUI.area.setForeground(Color.RED);
+			gUI.area.append("\nConnection error: unknown host name");
 			e.printStackTrace();
 		} catch (SpreadException e) {
 			// TODO Auto-generated catch block
-			area.setForeground(Color.RED);
-			area.append("\nConnection error: unable to connect spread server");
+			gUI.area.setForeground(Color.RED);
+			gUI.area.append("\nConnection error: unable to connect spread server");
 			e.printStackTrace();
 		}
 
@@ -428,16 +347,30 @@ public class accountReplica {
 				System.out.println(message.getType());
 
 				if (message.isRegular()) {
-
-					area.append("\nBalance has been updated.");
-					if(message.getSender().equals(connection.getPrivateGroup()))
+/*-
+ * ---------------------------------------------------
+ * Replica got new regular message. That means someone updated balance
+ * ---------------------------------------------------
+ * */
+					gUI.area.append("\nBalance has been updated.");
+					/*-
+					 * ---------------------------------------------------
+					 * If it is own message do not update balance. 
+					 * ---------------------------------------------------
+					 * */
+					/*if(message.getSender().equals(connection.getPrivateGroup())) 
 						{
-						//area.append("\nI am doing smth: ");
+						
 						refreshBal();
 						}
 					else
-					{
-						//area.append("\nSomeone else is doing smth: ");
+					{*/
+						/*-
+						 * ---------------------------------------------------
+						 * If it is message from other group members
+						 * ---------------------------------------------------
+						 * */
+						
 						String oper=(new String(message.getData())).substring(0, 1);
 						double val = Double.parseDouble((new String(message.getData())).substring(1));
 						
@@ -445,6 +378,7 @@ public class accountReplica {
 						if(oper.equals("a"))
 						{
 							balance += val;
+							
 							refreshBal();
 						}
 						else if(oper.equals("i"))
@@ -454,14 +388,14 @@ public class accountReplica {
 						}
 					//balance += Double.parseDouble((new String(message.getData())));
 					//refreshBal();
-					}
+					//}
 				} else if (message.isMembership()) {
 					MembershipInfo info = message.getMembershipInfo();
 
 					if (info.isCausedByDisconnect()
 							&& info.isRegularMembership()) {
 						clients = info.getMembers().length;
-						area.append("\nMember disconnected: "
+						gUI.area.append("\nMember disconnected: "
 								+ info.getDisconnected().toString());
 						checkPeersNumber();
 					}
@@ -478,7 +412,7 @@ public class accountReplica {
 																// new group
 																// member...
 						{
-							area.append("\nANOTHER Member connected: "
+							gUI.area.append("\nANOTHER Member connected: "
 									+ info.getJoined().toString());
 
 							SpreadMessage msg = new SpreadMessage();
@@ -490,7 +424,7 @@ public class accountReplica {
 							msg.addGroup(accountName);
 							try {
 								connection.multicast(msg);
-								area.append("Sending account info to new member...");
+								gUI.area.append("Sending account info to new member...");
 
 							} catch (SpreadException e) {
 								// TODO Auto-generated catch block
@@ -501,7 +435,7 @@ public class accountReplica {
 					}
 
 				} else if (message.isReject()) {
-					area.append("Received rejected message");
+					gUI.area.append("Received rejected message");
 				}
 
 			}
@@ -536,7 +470,7 @@ public class accountReplica {
 		}
 
 		accountReplica client = new accountReplica();
-		client.createGUI();
+		client.addListeners();
 
 		client.init(adress, accountName);
 		try {
@@ -546,14 +480,14 @@ public class accountReplica {
 			e.printStackTrace();
 		}
 		if (args.length == 4) {
-			if (connInited&&(clients >= numberOfReplicas)) {
-				parseDocument(args[3]);
+			if (client.connInited&&(client.clients >= numberOfReplicas)) {
+				client.parseDocument(args[3]);
 
 			} else {
 				// wait some time for initialization then repeat checking
 				
 				
-				area.append("\nCannot parse documect. Waiting for more clients to join.");
+				client.gUI.area.append("\nCannot parse documect. Waiting for more clients to join.");
 			}
 
 			// frame.dispose();
@@ -561,7 +495,7 @@ public class accountReplica {
 
 	}
 
-	private static void parseDocument(String fileToReadFrom) {
+	private void parseDocument(String fileToReadFrom) {
 		File file = new File(fileToReadFrom);
 		Scanner scanner = null;
 
@@ -569,7 +503,7 @@ public class accountReplica {
 			scanner = new Scanner(file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			area.append("\nCannot parse documect. Wrong file name");
+			gUI.area.append("\nCannot parse documect. Wrong file name");
 			
 		}
 		while (scanner.hasNext()) {
@@ -599,7 +533,7 @@ public class accountReplica {
 
 	/*
 	 * ------------------------------------------------------- This function
-	 * helps to round balance with nec. precision
+	 * helps to round balance with desired precision
 	 * -------------------------------------------------------
 	 */
 	private static double round(double number, int scale) {
